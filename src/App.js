@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import 'antd/dist/antd.css';
+
+import store, { persistor } from 'store';
+
+import Input from 'components/asd';
+import DetailedInformation from 'components/detailedInformation';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Input} />
+            <Route exact path="/cities/:id" component={DetailedInformation} />
+            <Route component={() => <div>Not found</div>} />
+          </Switch>
+        </Router>
+        {/* <div>
+        <Input />
+      </div> */}
+      </PersistGate>
+    </Provider>
   );
 }
 
