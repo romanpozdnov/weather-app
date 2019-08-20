@@ -6,8 +6,8 @@ import 'antd/dist/antd.css';
 
 import store, { persistor } from 'store';
 
-import Input from 'components/asd';
-import DetailedInformation from 'components/detailedInformation';
+import CitiesContainer from 'containers/cities-container';
+import WeatherContainer from 'containers/weather-container';
 
 function App() {
   return (
@@ -15,14 +15,11 @@ function App() {
       <PersistGate persistor={persistor}>
         <Router>
           <Switch>
-            <Route exact path="/" component={Input} />
-            <Route exact path="/cities/:id" component={DetailedInformation} />
+            <Route exact path="/" component={CitiesContainer} />
+            <Route exact path="/cities/:id" component={WeatherContainer} />
             <Route component={() => <div>Not found</div>} />
           </Switch>
         </Router>
-        {/* <div>
-        <Input />
-      </div> */}
       </PersistGate>
     </Provider>
   );

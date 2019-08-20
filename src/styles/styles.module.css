@@ -1,0 +1,25 @@
+.searchInput {
+  margin: 24px 0;
+}
+
+.cart {
+  margin-bottom: 16px;
+}
+
+.img {
+  width: 65;
+  height: 65;
+}
+
+.cartSpan {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cartButton {
+  margin-left: 5px;
+}
+
+.description {
+  margin-top: 24px;
+}
